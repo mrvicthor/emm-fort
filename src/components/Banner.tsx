@@ -2,7 +2,7 @@ import React from "react";
 
 const Banner = () => {
   return (
-    <section className="h-[35rem] border border-red-400 md:h-[25rem] banner">
+    <section className="h-[35rem] md:h-[25rem] banner">
       <div className="container flex flex-col gap-6 banner-wrapper items-center h-full justify-center">
         <h1 className="font-semibold text-3xl  text-center">
           Introducing EMM-Fort Group of Companies <br />A Global Conglomerate
