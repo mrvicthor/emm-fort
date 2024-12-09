@@ -106,7 +106,7 @@ options, and seamless purchase experience."
       </Company>
       <div className="container flex flex-col md:flex-row gap-4 justify-between pb-16">
         <p className="font-bold text-4xl">Ready to get started?</p>
-        <button className="bg-black text-white w-[9.625rem] h-[2.875rem] rounded-3xl hover:border hover:text-black hover:bg-white hover:border-black">
+        <button className="bg-[#FC644C] text-white w-[9.625rem] h-[2.875rem] rounded-3xl hover:border hover:text-black hover:bg-white hover:border-black font-bold">
           Contact us
         </button>
       </div>
