@@ -13,17 +13,17 @@ const Company = ({ order, title, content, children }: Props) => {
   const ref = useRef<HTMLElement>(null);
   const isInView = useInView(ref, { once: true });
   return (
-    <motion.section ref={ref}>
+    <motion.section ref={ref} className="overflow-hidden">
       <div
         className={`container ${
           order ? order : "company--box"
-        } bg-white rounded-3xl grid overflow-hidden`}
+        } bg-white rounded-3xl grid `}
       >
-        <div>{children}</div>
+        <div className="">{children}</div>
         <div
           className={`${
             order ? "md:order-first" : ""
-          } company--box-article py-[4.5rem] pr-6 pl-[2.0625rem] md:py-[8.5rem] md:px-[3.375rem]`}
+          } company--box-article py-[4.5rem] md:py-[8.5rem] md:px-[3.375rem]`}
         >
           <article className="space-y-4 md:space-y-[1.3125rem]">
             <h2

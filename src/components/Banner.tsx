@@ -4,7 +4,7 @@ import React from "react";
 
 const Banner = () => {
   return (
-    <section className="h-screen banner">
+    <section className="h-[40rem] md:h-screen banner">
       <div className="container flex flex-col gap-8 md:gap-16 banner-wrapper items-center h-full justify-center">
         <h1 className="font-bold text-3xl md:text-5xl  text-center md:leading-[3.5rem]">
           Introducing EMM-Fort Group of Companies <br />A Global Conglomerate
