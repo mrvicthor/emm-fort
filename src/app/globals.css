@@ -31,6 +31,10 @@
     max-width: 60ch;
   }
 
+  .company--box {
+    grid-template-rows: 16.9375rem 26.1875rem;
+  }
+
   .mobile-nav {
     transform: translateY(-340px);
     position: fixed;
@@ -45,6 +49,26 @@
   @media (48em <= width) {
     .mobile-nav {
       transform: translateY(0px);
+    }
+
+    .company--box {
+      grid-template-columns: 17.0625rem 1fr;
+      grid-template-rows: 600px;
+    }
+
+    .company--box-even {
+      grid-template-rows: 600px;
+      grid-template-columns: 1fr 17.0625rem;
+    }
+  }
+
+  @media (64rem <= width) {
+    .company--box {
+      grid-template-columns: 1fr 38.125rem;
+    }
+
+    .company--box-even {
+      grid-template-columns: 38.125rem 1fr;
     }
   }
 }
