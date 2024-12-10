@@ -42,7 +42,7 @@ const Company = ({ order, title, content, children }: Props) => {
                 opacity: isInView ? 1 : 0,
                 transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
               }}
-              className="font-normal opacity-60 text-[0.9375rem] leading-[1.5625rem]"
+              className="font-normal text-[#BCBCBB]  text-[0.9375rem] leading-[1.5625rem]"
             >
               {content}
             </p>
@@ -53,7 +53,7 @@ const Company = ({ order, title, content, children }: Props) => {
               opacity: isInView ? 1 : 0,
               transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
             }}
-            className="bg-black font-bold text-white w-[9.625rem] h-[2.875rem] rounded-3xl hover:border hover:text-black hover:bg-white hover:border-black mt-[1.4375rem] md:mt-12"
+            className="bg-[#FC644C] text-white w-[9.625rem] h-[2.875rem] rounded-3xl hover:border hover:text-[#FC644C] hover:bg-white hover:border-[#FC644C] font-bold mt-12"
           >
             Get started now
           </button>

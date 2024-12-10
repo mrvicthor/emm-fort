@@ -1,12 +1,13 @@
 import React from "react";
 import Image from "next/image";
 import Company from "./Company";
-import shoppingCart from "../../public/shopping-cart.png";
+// import shoppingCart from "../../public/shopping-cart.png";
 import salesLogo from "../../public/sales-icon.png";
 import consultingLogo from "../../public/consulting-icon.png";
 import logisticsIcon from "../../public/logistics-icon.png";
 import advertisingIcon from "../../public/advertising.png";
 import realEstateIcon from "../../public/real-estate.png";
+import testIcon from "../../public/test.jpeg";
 
 const Companies = () => {
   return (
@@ -19,7 +20,7 @@ delivered swifty to your doorstep."
       >
         <Image
           alt="shooping-cart logo"
-          src={shoppingCart}
+          src={testIcon}
           width={500}
           height={500}
           className="object-cover w-full h-full"
@@ -106,7 +107,7 @@ options, and seamless purchase experience."
       </Company>
       <div className="container flex flex-col md:flex-row gap-4 justify-between pb-16">
         <p className="font-bold text-4xl">Ready to get started?</p>
-        <button className="bg-[#FC644C] text-white w-[9.625rem] h-[2.875rem] rounded-3xl hover:border hover:text-black hover:bg-white hover:border-black font-bold">
+        <button className="bg-[#FC644C] text-white w-[9.625rem] h-[2.875rem] rounded-3xl hover:border hover:text-[#FC644C] hover:bg-white hover:border-[#FC644C] font-bold">
           Contact us
         </button>
       </div>
