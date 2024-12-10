@@ -28,7 +28,7 @@ const Company = ({ order, title, content, children }: Props) => {
           <article className="space-y-4 md:space-y-[1.3125rem]">
             <h2
               style={{
-                transform: isInView ? "none" : "translateY(20px)",
+                transform: isInView ? "none" : "translateY(30px)",
                 opacity: isInView ? 1 : 0,
                 transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
               }}
