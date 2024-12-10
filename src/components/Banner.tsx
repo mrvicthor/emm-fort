@@ -12,7 +12,7 @@ const Banner = () => {
           Our diverse portfolio of companies is transforming industries and
           improving lives worldwide. Meet our dynamic subsidiaries
         </p>
-        <button className="bg-black text-white w-[9.625rem] h-[2.875rem] rounded-3xl hover:border hover:text-black hover:bg-white hover:border-black font-bold">
+        <button className="hover:bg-black hover:text-white w-[9.625rem] h-[2.875rem] rounded-3xl border text-black bg-white border-black font-bold">
           Ask me
         </button>
       </div>
