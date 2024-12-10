@@ -15,6 +15,7 @@ const Header = () => {
     { label: "about us", href: "/about" },
     { label: "our companies", href: "/companies" },
     { label: "contact us", href: "/contact" },
+    { label: "login", href: "/login" },
   ];
 
   const handleShowMenu = () => {
