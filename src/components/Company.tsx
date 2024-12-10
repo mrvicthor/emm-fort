@@ -53,7 +53,7 @@ const Company = ({ order, title, content, children }: Props) => {
               opacity: isInView ? 1 : 0,
               transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
             }}
-            className="bg-[#FC644C] text-white w-[9.625rem] h-[2.875rem] rounded-3xl hover:border hover:text-[#FC644C] hover:bg-white hover:border-[#FC644C] font-bold mt-12"
+            className="hover:bg-[#FC644C] hover:text-white w-[9.625rem] h-[2.875rem] rounded-3xl border text-[#FC644C] border-[#FC644C] font-bold mt-12"
           >
             Get started now
           </button>
