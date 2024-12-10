@@ -67,8 +67,8 @@ const Header = () => {
               href={link.href}
               onClick={preventScroll}
               className={`${
-                pathname === link.href ? "text-[#FC644C]" : "text-[#000000]"
-              }  uppercase tracking-[2.5px] font-bold text-[0.9375rem] leading-[19.53px]  md:text-[0.75rem] cursor-pointer hover:text-[#FC644C]`}
+                pathname === link.href ? "text-[#ff5c00]" : "text-[#000000]"
+              }  uppercase tracking-[2.5px] font-bold text-[0.9375rem] leading-[19.53px]  md:text-[0.75rem] cursor-pointer hover:text-[#ff5c00]`}
             >
               {link.label}
             </Link>
