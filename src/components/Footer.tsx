@@ -5,7 +5,7 @@ import emmfortLogo from "../../public/emm-fort-logo.png";
 
 const Footer = () => {
   return (
-    <footer className="bg-black">
+    <footer className="bg-[#101010]">
       <div className="container py-4">
         <div>
           <div className="flex flex-col md:flex-row md:justify-between gap-8">
