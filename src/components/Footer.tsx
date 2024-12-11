@@ -22,27 +22,39 @@ const Footer = () => {
             <div className="md:ml-auto space-y-4">
               <h4 className="text-white text-lg capitalize">our companies</h4>
               <div className="text-[#BCBCBB] flex flex-col gap-3">
-                <Link href="#">EMM-Fort Nigeria</Link>
-                <Link href="#">EMM-Fort Affiliate Sales</Link>
-                <Link href="#">EMM-Fort Consulting</Link>
-                <Link href="#">EMM-Fort Advertising</Link>
-                <Link href="#">EMM-Fort Logistics</Link>
-                <Link href="#">EMM-Fort Realty</Link>
+                <Link href="#" className="hover:text-[#ff5c00]">
+                  EMM-Fort Nigeria
+                </Link>
+                <Link href="#" className="hover:text-[#ff5c00]">
+                  EMM-Fort Affiliate Sales
+                </Link>
+                <Link href="#" className="hover:text-[#ff5c00]">
+                  EMM-Fort Consulting
+                </Link>
+                <Link href="#" className="hover:text-[#ff5c00]">
+                  EMM-Fort Advertising
+                </Link>
+                <Link href="#" className="hover:text-[#ff5c00]">
+                  EMM-Fort Logistics
+                </Link>
+                <Link href="#" className="hover:text-[#ff5c00]">
+                  EMM-Fort Realty
+                </Link>
               </div>
             </div>
             <div className="space-y-4">
               <h4 className="text-white text-lg">EMM-Fort Group</h4>
-              <div className="text-[#BCBCBB] flex flex-col gap-3">
-                <Link href="/" className="capitalize">
+              <div className="text-[#BCBCBB]  flex flex-col gap-3">
+                <Link href="/" className="capitalize hover:text-[#ff5c00]">
                   home
                 </Link>
-                <Link href="#" className="capitalize">
+                <Link href="#" className="capitalize hover:text-[#ff5c00]">
                   about us
                 </Link>
-                <Link href="#" className="capitalize">
+                <Link href="#" className="capitalize hover:text-[#ff5c00]">
                   ask me
                 </Link>
-                <Link href="#" className="capitalize">
+                <Link href="#" className="capitalize hover:text-[#ff5c00]">
                   contact us
                 </Link>
               </div>
