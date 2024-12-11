@@ -17,7 +17,7 @@ const Company = ({ order, title, content, children }: Props) => {
       <div
         className={`container ${
           order ? order : "company--box"
-        } bg-white rounded-3xl grid `}
+        } bg-white rounded-3xl grid`}
       >
         <div className="">{children}</div>
         <div

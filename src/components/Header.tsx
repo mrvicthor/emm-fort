@@ -15,7 +15,6 @@ const Header = () => {
     { label: "about us", href: "/about" },
     { label: "our companies", href: "/companies" },
     { label: "contact us", href: "/contact" },
-    { label: "login", href: "/login" },
   ];
 
   const handleShowMenu = () => {
@@ -74,6 +73,12 @@ const Header = () => {
               {link.label}
             </Link>
           ))}
+          <Link
+            href="/login"
+            className="border border-[#ff5c00] text-[#ff5c00] py-1 px-6 rounded-3xl capitalize hover:text-white hover:bg-[#ff5c00] font-bold"
+          >
+            login
+          </Link>
         </div>
         <div
           onClick={handleShowMenu}

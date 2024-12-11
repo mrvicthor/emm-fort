@@ -7,7 +7,8 @@ import consultingLogo from "../../public/consulting-icon.png";
 import logisticsIcon from "../../public/logistics-icon.png";
 import advertisingIcon from "../../public/advertising.png";
 import realEstateIcon from "../../public/real-estate.png";
-import testIcon from "../../public/test.jpeg";
+// import testIcon from "../../public/test.jpeg";
+import rectangleIcon from "../../public/Rectangle-1.png";
 
 const Companies = () => {
   return (
@@ -20,7 +21,7 @@ delivered swifty to your doorstep."
       >
         <Image
           alt="shooping-cart logo"
-          src={testIcon}
+          src={rectangleIcon}
           width={500}
           height={500}
           className="object-cover w-full h-full"
