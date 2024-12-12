@@ -13,6 +13,12 @@ import realEstateIcon from "../../public/real-estate-icon.jpeg";
 import ecommerceIcon from "../../public/e-commerce-icon.jpeg";
 import consultingIcon from "../../public/consulting-icon.jpeg";
 import salesIcon from "../../public/sales-icon.jpeg";
+import cartLogo from "../../public/test.jpeg";
+import salesLogo from "../../public/sales-logo.jpeg";
+import logisticsLogo from "../../public/logistics-logo.jpeg";
+import consultingLogo from "../../public/consulting-logo.jpeg";
+import realtyLogo from "../../public/realty-logo.jpeg";
+import advertisingLogo from "../../public/advertising-logo.jpeg";
 
 const Companies = () => {
   return (
@@ -22,6 +28,7 @@ const Companies = () => {
         content="Pioneering e-commerce in Nigeria with a curated 
 selection of quality grocery products, 
 delivered swifty to your doorstep."
+        imgPath={cartLogo}
       >
         <Image
           alt="shooping-cart logo"
@@ -38,6 +45,7 @@ delivered swifty to your doorstep."
 businesses through our innovative 
 affiliate marketing programs."
         order="company--box-even"
+        imgPath={salesLogo}
       >
         <Image
           alt="sales logo"
@@ -53,6 +61,7 @@ affiliate marketing programs."
         content="Expert advisors empowering businesses to achieve
 remarkable growth, through strategic guidance
 and tailored solutions."
+        imgPath={consultingLogo}
       >
         <Image
           alt="consulting logo"
@@ -68,6 +77,7 @@ and tailored solutions."
         content="Streamlining global supply chains with efficient
 reliable, and tech driven logistics solutions."
         order="company--box-even"
+        imgPath={logisticsLogo}
       >
         <Image
           alt="consulting logo"
@@ -84,6 +94,7 @@ reliable, and tech driven logistics solutions."
 business success, through innovative story-telling
 and strategic medial planning.
 "
+        imgPath={advertisingLogo}
       >
         <Image
           alt="consulting logo"
@@ -100,6 +111,7 @@ and strategic medial planning.
 innovative developments, flexible rental and lease 
 options, and seamless purchase experience."
         order="company--box-even"
+        imgPath={realtyLogo}
       >
         <Image
           alt="consulting logo"
