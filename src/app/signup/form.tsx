@@ -2,7 +2,7 @@ import React from "react";
 
 const SignupForm = () => {
   return (
-    <form className="space-y-4">
+    <form className="space-y-4 overflow-y-auto">
       <div className="flex flex-col gap-2">
         <label htmlFor="fullName" className="uppercase">
           Full Name
