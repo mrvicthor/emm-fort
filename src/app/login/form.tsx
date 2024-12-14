@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const LoginForm = () => {
@@ -24,6 +25,11 @@ const LoginForm = () => {
           className="border py-3 px-4 rounded-lg"
           placeholder="Enter your password"
         />
+      </div>
+      <div className="text-right">
+        <Link href="/forgot-password" className="text-[#ff5c00]">
+          Forgot password?
+        </Link>
       </div>
       <button
         type="submit"
