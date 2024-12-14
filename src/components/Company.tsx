@@ -3,6 +3,7 @@ import React, { useRef } from "react";
 import Image from "next/image";
 import { useInView, motion } from "framer-motion";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
+import Link from "next/link";
 
 type Props = {
   order?: string;
@@ -60,16 +61,25 @@ const Company = ({ order, title, content, children, imgPath }: Props) => {
               {content}
             </p>
           </article>
-          <button
-            style={{
-              transform: isInView ? "none" : "translateY(20px)",
-              opacity: isInView ? 1 : 0,
-              transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
-            }}
-            className="hover:bg-[#ff5c00] hover:text-white w-[9.625rem] h-[2.875rem] rounded-3xl border text-[#ff5c00] border-[#ff5c00] font-bold mt-12"
-          >
-            Get started now
-          </button>
+          {title === "EMM-Fort Affiliate Sales" ? (
+            <Link
+              href="/login"
+              className="hover:bg-[#ff5c00] hover:text-white w-[9.625rem] h-[2.875rem] rounded-3xl border text-[#ff5c00] border-[#ff5c00] font-bold mt-12 flex items-center justify-center"
+            >
+              Login
+            </Link>
+          ) : (
+            <button
+              style={{
+                transform: isInView ? "none" : "translateY(20px)",
+                opacity: isInView ? 1 : 0,
+                transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
+              }}
+              className="hover:bg-[#ff5c00] hover:text-white w-[9.625rem] h-[2.875rem] rounded-3xl border text-[#ff5c00] border-[#ff5c00] font-bold mt-12"
+            >
+              Get started now
+            </button>
+          )}
         </div>
       </div>
     </motion.section>

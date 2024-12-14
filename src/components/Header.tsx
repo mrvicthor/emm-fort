@@ -59,7 +59,7 @@ const Header = () => {
         <div
           id="mobile-nav"
           data-visible={showMenu ? true : false}
-          className="mobile-nav px-8 py-8 bg-[#ffffff] left-0 right-0 flex flex-col items-center gap-[1.25rem] h-[15.8125rem] z-10 md:static md:h-4 md:top-0 md:py-0 md:flex-row md:px-0 md:gap-[2.3125rem]"
+          className="mobile-nav px-8 py-8 bg-[#ffffff] left-0 right-0 flex flex-col items-center gap-[1.25rem] h-[13.8125rem] z-10 md:static md:h-4 md:top-0 md:py-0 md:flex-row md:px-0 md:gap-[2.3125rem]"
         >
           {navLinks.map((link, index) => (
             <Link
@@ -73,12 +73,6 @@ const Header = () => {
               {link.label}
             </Link>
           ))}
-          <Link
-            href="/login"
-            className="border border-[#ff5c00] text-[#ff5c00] py-1 px-6 rounded-3xl capitalize hover:text-white hover:bg-[#ff5c00] font-bold"
-          >
-            login
-          </Link>
         </div>
         <div
           onClick={handleShowMenu}
