@@ -29,6 +29,7 @@ const Companies = () => {
 selection of quality grocery products, 
 delivered swifty to your doorstep."
         imgPath={cartLogo}
+        url="https://www.emmfort.com.ng"
       >
         <Image
           alt="shooping-cart logo"
@@ -46,6 +47,7 @@ businesses through our innovative
 affiliate marketing programs."
         order="company--box-even"
         imgPath={salesLogo}
+        url="/login"
       >
         <Image
           alt="sales logo"
@@ -62,6 +64,7 @@ affiliate marketing programs."
 remarkable growth, through strategic guidance
 and tailored solutions."
         imgPath={consultingLogo}
+        url="/"
       >
         <Image
           alt="consulting logo"
@@ -78,6 +81,7 @@ and tailored solutions."
 reliable, and tech driven logistics solutions."
         order="company--box-even"
         imgPath={logisticsLogo}
+        url="/"
       >
         <Image
           alt="consulting logo"
@@ -95,6 +99,7 @@ business success, through innovative story-telling
 and strategic medial planning.
 "
         imgPath={advertisingLogo}
+        url="/"
       >
         <Image
           alt="consulting logo"
@@ -112,6 +117,7 @@ innovative developments, flexible rental and lease
 options, and seamless purchase experience."
         order="company--box-even"
         imgPath={realtyLogo}
+        url="/"
       >
         <Image
           alt="consulting logo"

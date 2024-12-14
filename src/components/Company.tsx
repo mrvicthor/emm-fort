@@ -11,9 +11,10 @@ type Props = {
   content: string;
   children: React.ReactNode;
   imgPath: string | StaticImport;
+  url: string;
 };
 
-const Company = ({ order, title, content, children, imgPath }: Props) => {
+const Company = ({ order, title, content, children, imgPath, url }: Props) => {
   const ref = useRef<HTMLElement>(null);
   const isInView = useInView(ref, { once: true });
   return (
@@ -61,25 +62,18 @@ const Company = ({ order, title, content, children, imgPath }: Props) => {
               {content}
             </p>
           </article>
-          {title === "EMM-Fort Affiliate Sales" ? (
-            <Link
-              href="/login"
-              className="hover:bg-[#ff5c00] hover:text-white w-[9.625rem] h-[2.875rem] rounded-3xl border text-[#ff5c00] border-[#ff5c00] font-bold mt-12 flex items-center justify-center"
-            >
-              Login
-            </Link>
-          ) : (
-            <button
-              style={{
-                transform: isInView ? "none" : "translateY(20px)",
-                opacity: isInView ? 1 : 0,
-                transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
-              }}
-              className="hover:bg-[#ff5c00] hover:text-white w-[9.625rem] h-[2.875rem] rounded-3xl border text-[#ff5c00] border-[#ff5c00] font-bold mt-12"
-            >
-              Get started now
-            </button>
-          )}
+
+          <Link
+            style={{
+              transform: isInView ? "none" : "translateY(20px)",
+              opacity: isInView ? 1 : 0,
+              transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
+            }}
+            href={url}
+            className="hover:bg-[#ff5c00] hover:text-white w-[9.625rem] h-[2.875rem] rounded-3xl border text-[#ff5c00] border-[#ff5c00] font-bold mt-12 flex items-center justify-center"
+          >
+            {title === "EMM-Fort Affiliate Sales" ? "Login" : "Get started now"}
+          </Link>
         </div>
       </div>
     </motion.section>
