@@ -6,17 +6,18 @@ const TierForm = () => {
   const [selectTier, setSelectedTier] = useState<string>("");
 
   const tierList = [
+    { label: "Platinum", price: "#100,000" },
     {
       label: "Gold",
-      price: "#100,000",
-    },
-    {
-      label: "Silver",
       price: "#50,000",
     },
     {
+      label: "Silver",
+      price: "#25,000",
+    },
+    {
       label: "Bronze",
-      price: "#20,000",
+      price: "#10,000",
     },
   ];
 
@@ -30,6 +31,8 @@ const TierForm = () => {
               ? "border-[#FBD968]"
               : tier.label === "Silver"
               ? "border-[#BCBBBC]"
+              : tier.label === "Platinum"
+              ? "border-[#E5E4E2]"
               : "border-[#DA7122]"
           }`}
           onClick={() => setSelectedTier(tier.label)}
