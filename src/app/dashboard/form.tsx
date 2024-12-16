@@ -33,20 +33,20 @@ const TierForm = () => {
   };
 
   const tierList = [
-    { label: "Platinum", price: "#100,000" },
+    { label: "Platinum", price: "₦100,000" },
     {
       label: "Gold",
-      price: "#50,000",
+      price: "₦50,000",
     },
     {
       label: "Silver",
-      price: "#25,000",
+      price: "₦25,000",
     },
     {
       label: "Bronze",
-      price: "#10,000",
+      price: "₦10,000",
     },
-    { label: "Basic", price: "free" },
+    { label: "Basic", price: "FREE" },
   ];
 
   return (
@@ -75,7 +75,7 @@ const TierForm = () => {
             onClick={() => setSelectedTier(tier.label)}
           >
             <label htmlFor={tier.label} className="wrapper">
-              {tier.label} tier
+              {tier.label}
               <input
                 type="radio"
                 checked={selectTier === tier.label}
