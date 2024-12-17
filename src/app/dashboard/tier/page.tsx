@@ -1,0 +1,34 @@
+"use client";
+import Link from "next/link";
+import React, { useState } from "react";
+import TierForm from "./form";
+// import Dashboard from "@/components/Dashboard";
+
+const Tier = () => {
+  const [selectTier, setSelectedTier] = useState<string>("");
+  const [showTierOptions, setShowTierOptions] = useState(true);
+  console.log(showTierOptions);
+  return (
+    <>
+      <section className="container py-12 flex justify-center">
+        <div className="bg-white w-[30rem] py-8 px-4 rounded-lg space-y-4">
+          <div className="flex items-center gap-4">
+            <Link href="/">
+              <span className="material-symbols-outlined text-[#ff5c00]">
+                chevron_backward
+              </span>
+            </Link>
+            <h1 className="text-3xl font-semibold">Choose tier</h1>
+          </div>
+          <TierForm
+            selectTier={selectTier}
+            handleSelect={setSelectedTier}
+            handleOptions={setShowTierOptions}
+          />
+        </div>
+      </section>
+    </>
+  );
+};
+
+export default Tier;

@@ -1,10 +1,16 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { motion } from "motion/react";
 
-const TierForm = () => {
-  const [selectTier, setSelectedTier] = useState<string>("");
+type TierProps = {
+  selectTier: string;
+  handleSelect: React.Dispatch<React.SetStateAction<string>>;
+  handleOptions: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+const TierForm = ({ selectTier, handleSelect, handleOptions }: TierProps) => {
+  // const [selectTier, setSelectedTier] = useState<string>("");
   const containerVariants = {
     hidden: {
       opacity: 0,
@@ -72,14 +78,20 @@ const TierForm = () => {
                 ? "border-black"
                 : "border-[#DA7122]"
             }`}
-            onClick={() => setSelectedTier(tier.label)}
+            onClick={() => {
+              handleSelect(tier.label);
+              handleOptions(true);
+            }}
           >
             <label htmlFor={tier.label} className="wrapper">
               {tier.label}
               <input
                 type="radio"
                 checked={selectTier === tier.label}
-                onChange={(e) => setSelectedTier(e.target.value)}
+                onChange={(e) => {
+                  handleSelect(e.target.value);
+                  handleOptions(true);
+                }}
                 value={tier.label}
                 name="tier"
                 id={tier.label}

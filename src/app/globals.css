@@ -109,6 +109,11 @@
     background: white;
   }
 
+  .dashboard {
+    grid-template-columns: 16.25rem 1fr 22rem;
+    /* grid-template-rows: 1fr; */
+  }
+
   @media (48em <= width) {
     .mobile-nav {
       transform: translateY(0px);
