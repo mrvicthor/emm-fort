@@ -2,6 +2,7 @@
 
 import React from "react";
 import { motion } from "motion/react";
+import { formatCurrency } from "@/helpers";
 
 type TierProps = {
   selectTier: string;
@@ -39,20 +40,20 @@ const TierForm = ({ selectTier, handleSelect, handleOptions }: TierProps) => {
   };
 
   const tierList = [
-    { label: "Platinum", price: "₦100,000" },
+    { label: "Platinum", price: 100000 },
     {
       label: "Gold",
-      price: "₦50,000",
+      price: 50000,
     },
     {
       label: "Silver",
-      price: "₦25,000",
+      price: 25000,
     },
     {
       label: "Bronze",
-      price: "₦10,000",
+      price: 10000,
     },
-    { label: "Basic", price: "FREE" },
+    { label: "Basic", price: 0 },
   ];
 
   return (
@@ -98,7 +99,9 @@ const TierForm = ({ selectTier, handleSelect, handleOptions }: TierProps) => {
               />
               <span className="checkmark"></span>
             </label>
-            <p className="ml-auto font-medium text-lg">{tier.price}</p>
+            <p className="ml-auto font-medium text-lg">
+              {tier.price === 0 ? "FREE" : formatCurrency(tier.price)}
+            </p>
           </motion.div>
         ))}
       </motion.div>

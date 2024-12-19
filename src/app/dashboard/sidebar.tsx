@@ -13,7 +13,7 @@ const Sidebar = () => {
     { label: "Referrals", icon: "share" },
   ];
   return (
-    <aside className="bg-white h-[94vh] rounded-xl">
+    <aside className="bg-white h-[94vh] rounded-xl hidden">
       <nav className="px-3 flex flex-col gap-6 relative h-full">
         <Link href="#" className="flex justify-center mt-2">
           <Image alt="sales logo" src={salesLogo} width={74} height={74} />
@@ -24,7 +24,7 @@ const Sidebar = () => {
         >
           dashboard
         </Link>
-        {links.map((link, index) => (
+        {/* {links.map((link, index) => (
           <div key={index} className="flex flex-col gap-4">
             <Link href="/" className="flex items-center hover:text-[#ff5c00]">
               <span className="material-symbols-outlined block">
@@ -33,7 +33,7 @@ const Sidebar = () => {
               <span className="pl-2 block">{link.label}</span>
             </Link>
           </div>
-        ))}
+        ))} */}
 
         <button className="absolute bottom-16 flex items-center">
           <span className="material-symbols-outlined block">logout</span>{" "}

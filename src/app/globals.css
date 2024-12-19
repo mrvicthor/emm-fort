@@ -110,8 +110,16 @@
   }
 
   .dashboard {
-    grid-template-columns: 16.25rem 1fr 22rem;
+    grid-template-columns: 1fr 22rem;
     /* grid-template-rows: 1fr; */
+  }
+
+  #color-chart {
+    background: #000;
+  }
+
+  .dashboard-shadow {
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
   }
 
   @media (48em <= width) {
