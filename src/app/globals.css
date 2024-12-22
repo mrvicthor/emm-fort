@@ -110,8 +110,16 @@
   }
 
   .dashboard {
-    grid-template-columns: 1fr 22rem;
+    grid-template-columns: 16rem 1fr;
     /* grid-template-rows: 1fr; */
+  }
+
+  .semi-circle {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 150px 150px 0 0;
+    background-color: green;
   }
 
   #color-chart {

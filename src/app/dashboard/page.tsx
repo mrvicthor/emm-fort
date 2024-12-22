@@ -3,40 +3,77 @@ import Header from "./header";
 import { formatCurrency, getTierMatch } from "@/helpers";
 import Image from "next/image";
 import SalesByTime from "./_components/salesByTime";
+import Gauge from "./_components/gauge";
 
 export default function DashboardPage() {
   const tier = getTierMatch("Silver");
   return (
     <section className="bg-white h-[94vh] rounded-xl px-4 py-2 space-y-4">
       <Header />
-      <section className=" rounded-xl py-4 px-4 flex justify-between dashboard-shadow ">
-        <div className="flex flex-col justify-between">
-          <article className="space-y-1">
-            <h2 className="font-medium">Tier</h2>
-            <p className="text-2xl font-bold">Silver</p>
-          </article>
-          <button className="bg-gradient-to-r from-[#ff5c00] to-[#FFD700] py-2 px-4 rounded-lg text-white capitalize font-semibold">
-            upgrade tier
-          </button>
+      <section className="grid grid-cols-2 gap-4">
+        <div className="col-span-1 flex flex-col gap-3">
+          <div className=" rounded-xl py-4 px-4 flex justify-between dashboard-shadow ">
+            <div className="flex flex-col justify-between">
+              <article className="space-y-1">
+                <h2 className="font-medium">Tier</h2>
+                <p className="text-2xl font-bold">Silver</p>
+              </article>
+              <button className="bg-gradient-to-r from-[#ff5c00] to-[#FFD700] py-2 px-4 rounded-lg text-white capitalize font-semibold">
+                upgrade tier
+              </button>
+            </div>
+            <div className="h-28 w-28">
+              <Image src={tier} alt="tier logo" />
+            </div>
+          </div>
+          <div className="flex justify-between gap-4 py-4 px-4 rounded-xl capitalize dashboard-shadow ">
+            <div className="space-y-2">
+              <h3>available balance</h3>
+              <p className="font-bold text-xl">{formatCurrency(250000)}</p>
+            </div>
+            <div className="flex flex-col gap-4">
+              <button className="bg-[#06CC17] text-white w-[9.125rem] rounded-lg h-[2rem] font-bold hover:opacity-40">
+                Withdraw
+              </button>
+              <button className="bg-[#191382] text-white h-8 w-[9.125rem] rounded-lg font-bold hover:opacity-40">
+                Save
+              </button>
+            </div>
+          </div>
         </div>
-        <div className="h-28 w-28">
-          <Image src={tier} alt="tier logo" />
+        <div className="col-span-1">
+          <div className="rounded-xl dashboard-shadow py-4 px-4 overflow-hidden space-y-8">
+            <h3 className="font-bold text-lg">Total earned</h3>
+
+            <Gauge value={250000} maxValue={5000000} textColor="#222" />
+
+            {/* <div className="flex justify-center">
+              <svg>
+                <g fill="none" stroke="#ff5c00">
+                  <circle cx="150" cy="150" r="125" strokeWidth="50" />
+                  <circle
+                    cx="150"
+                    cy="151"
+                    r="125"
+                    strokeWidth="50"
+                    id="circle"
+                  />
+                  <text
+                    x="105"
+                    y="145"
+                    textAnchor="center"
+                    stroke="none"
+                    fill="#222"
+                  >
+                    {formatCurrency(250000)}
+                  </text>
+                </g>
+              </svg>
+            </div> */}
+          </div>
         </div>
       </section>
-      <section className="flex justify-between gap-4 py-4 px-4 rounded-xl capitalize dashboard-shadow ">
-        <div className="space-y-2">
-          <h3>available balance</h3>
-          <p className="font-bold text-xl">{formatCurrency(250000)}</p>
-        </div>
-        <div className="flex flex-col gap-4">
-          <button className="bg-[#06CC17] text-white w-[9.125rem] rounded-lg h-[2rem] font-bold hover:opacity-40">
-            Withdraw
-          </button>
-          <button className="bg-[#191382] text-white h-8 w-[9.125rem] rounded-lg font-bold hover:opacity-40">
-            Save
-          </button>
-        </div>
-      </section>
+
       <section className="py-4 px-4 space-y-3 rounded-xl dashboard-shadow ">
         <p className="capitalize font-semibold text-lg">monthly target</p>
         <SalesByTime />

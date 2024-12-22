@@ -72,7 +72,7 @@ const Company = ({ order, title, content, children, imgPath, url }: Props) => {
             href={url}
             className="hover:bg-[#ff5c00] hover:text-white w-[9.625rem] h-[2.875rem] rounded-3xl border text-[#ff5c00] border-[#ff5c00] font-bold mt-12 flex items-center justify-center"
           >
-            {title === "EMM-Fort Affiliate Sales" ? "Login" : "Get started now"}
+            Get started now
           </Link>
         </div>
       </div>

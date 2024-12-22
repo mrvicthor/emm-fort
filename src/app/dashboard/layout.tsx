@@ -1,4 +1,3 @@
-import RightSidebar from "./asidebar";
 import Sidebar from "./sidebar";
 
 export default function DashboardLayout({
@@ -10,7 +9,7 @@ export default function DashboardLayout({
     <section className="container py-[3vh]">
       <div className="grid dashboard gap-4">
         <Sidebar />
-        {children} <RightSidebar />
+        {children}
       </div>
     </section>
   );
