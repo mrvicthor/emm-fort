@@ -3,15 +3,15 @@ import React from "react";
 import Image from "next/image";
 import salesLogo from "../../../public/sales-logo.jpeg";
 const Sidebar = () => {
-  const links = [
-    { label: "Tier", icon: "account_balance_wallet" },
-    { label: "Transaction", icon: "universal_currency_alt" },
-    { label: "Monthly target", icon: "target" },
-    { label: "Total earned", icon: "money_bag" },
-    { label: "Downlines", icon: "list_alt" },
-    { label: "Settings", icon: "settings" },
-    { label: "Referrals", icon: "share" },
-  ];
+  // const links = [
+  //   { label: "Tier", icon: "account_balance_wallet" },
+  //   { label: "Transaction", icon: "universal_currency_alt" },
+  //   { label: "Monthly target", icon: "target" },
+  //   { label: "Total earned", icon: "money_bag" },
+  //   { label: "Downlines", icon: "list_alt" },
+  //   { label: "Settings", icon: "settings" },
+  //   { label: "Referrals", icon: "share" },
+  // ];
   return (
     <aside className="bg-white h-[94vh] rounded-xl hidden">
       <nav className="px-3 flex flex-col gap-6 relative h-full">
