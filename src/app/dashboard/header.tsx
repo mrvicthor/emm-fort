@@ -36,9 +36,9 @@ const Header = () => {
   console.log(setNewNotification);
 
   return (
-    <header className=" flex items-center justify-between gap-4 overflow-hidden">
+    <header className=" flex items-center justify-between gap-4 overflow-hidden h-14">
       <div className="flex gap-4">
-        <Link href="#" className="flex justify-center md:hidden">
+        <Link href="#" className="flex justify-center">
           <Image alt="sales logo" src={salesLogo} width={24} height={24} />
         </Link>
         <h1 className="font-bold sm:text- md:text-lg">Dashboard</h1>
@@ -64,9 +64,7 @@ const Header = () => {
         </span>
         <span className="material-symbols-outlined block">account_circle</span>
         <div className="hidden md:flex flex-col">
-          <span className="block font-semibold sm:text-sm md:text-lg">
-            Maureen
-          </span>
+          <span className="block font-semibold sm:text-sm">Maureen</span>
           <span className="block sm:text-xs text-sm opacity-40 ">Silver</span>
         </div>
       </div>

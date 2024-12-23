@@ -33,22 +33,33 @@ export default function DashboardPage() {
               <Image src={tier} alt="tier logo" />
             </div>
           </div>
-          <div className="flex justify-between gap-4 py-4 px-4 rounded-xl dashboard-shadow ">
-            <div className="space-y-2">
+          <div className=" py-4 px-4 rounded-xl dashboard-shadow ">
+            <div className="space-y-3">
               <h3 className="capitalize font-bold text-sm md:text-lg">
                 available balance
               </h3>
-              <p className="font-medium text-md opacity-40">
-                {formatCurrency(250000)}
-              </p>
             </div>
             <div className="flex flex-col gap-4">
-              <button className="bg-[#06CC17] text-white w-[9.125rem] rounded-lg h-[2rem] font-bold hover:opacity-40">
-                Withdraw
-              </button>
-              <button className="bg-[#191382] text-white h-8 w-[9.125rem] rounded-lg font-bold hover:opacity-40">
-                Save
-              </button>
+              <div className="flex items-center gap-4">
+                <span className="material-symbols-outlined block">
+                  lock_open
+                </span>
+                <p className="font-medium text-md opacity-40">
+                  {formatCurrency(250000)}
+                </p>
+                <button className="bg-[#06CC17] ml-auto text-white w-[9.125rem] rounded-lg h-[2rem] font-bold hover:opacity-40">
+                  Withdraw
+                </button>
+              </div>
+              <div className="flex items-center gap-4">
+                <span className="material-symbols-outlined block">lock</span>
+                <p className="font-medium text-md opacity-40">
+                  {formatCurrency(850000)}
+                </p>
+                <button className="bg-[#191382] ml-auto text-white h-8 w-[9.125rem] rounded-lg font-bold hover:opacity-40">
+                  Save
+                </button>
+              </div>
             </div>
           </div>
         </div>

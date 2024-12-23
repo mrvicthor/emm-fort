@@ -1,5 +1,3 @@
-import Sidebar from "./sidebar";
-
 export default function DashboardLayout({
   children,
 }: {
@@ -7,10 +5,7 @@ export default function DashboardLayout({
 }) {
   return (
     <section className="container py-[3vh]">
-      <div className="grid dashboard gap-4">
-        <Sidebar />
-        {children}
-      </div>
+      <div className=" dashboard gap-4">{children}</div>
     </section>
   );
 }
