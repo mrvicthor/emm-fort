@@ -36,16 +36,15 @@ const Header = () => {
   console.log(setNewNotification);
 
   return (
-    <header className=" flex items-center justify-between gap-4">
+    <header className=" flex items-center justify-between gap-4 overflow-hidden border border-red-500">
       <div className="flex gap-4">
         <Link href="#" className="flex justify-center md:hidden">
-          <Image alt="sales logo" src={salesLogo} width={40} height={40} />
+          <Image alt="sales logo" src={salesLogo} width={24} height={24} />
         </Link>
-
-        <h1 className="font-bold text-lg">Dashboard</h1>
+        <h1 className="font-bold sm:text- md:text-lg">Dashboard</h1>
       </div>
-      <div className="border border-slate flex items-center gap-2 px-4 py-2 rounded-xl w-[20rem]">
-        <span className="material-symbols-outlined block text-[#ff5c00]">
+      <div className="dashboard-shadow hidden  md:flex items-center gap-2 px-4 py-2 rounded-xl w-[20rem]">
+        <span className="material-symbols-outlined block opacity-40">
           search
         </span>
         <input
@@ -54,14 +53,21 @@ const Header = () => {
           className="outline-none h-full"
         />
       </div>
+      <div className="h-8 w-8 rounded-full dashboard-shadow flex items-center justify-center md:hidden ml-auto">
+        <span className="material-symbols-outlined block opacity-40">
+          search
+        </span>
+      </div>
       <div className="flex gap-4 items-center">
         <span className="material-symbols-outlined block cursor-pointer">
           {notification ? "notifications_unread" : "notifications"}
         </span>
         <span className="material-symbols-outlined block">account_circle</span>
-        <div className="flex flex-col">
-          <span className="block font-semibold">Maureen</span>
-          <span className="block text-sm opacity-40">Silver</span>
+        <div className="hidden md:flex flex-col">
+          <span className="block font-semibold sm:text-sm md:text-lg">
+            Maureen
+          </span>
+          <span className="block sm:text-xs text-sm opacity-40 ">Silver</span>
         </div>
       </div>
     </header>

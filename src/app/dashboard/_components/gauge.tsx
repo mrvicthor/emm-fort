@@ -37,7 +37,9 @@ const Gauge = ({
   //   Calculate the dash offset to show only half circle
   const dashOffset = circumference * 0.75;
   return (
-    <div className={`w-full h-[11rem] max-w-5xl mx-auto ${classNames}`}>
+    <div
+      className={`w-full h-[5rem] md:h-[11rem] max-w-5xl mx-auto ${classNames}`}
+    >
       <div className="w-full aspect-[2/1]">
         <svg
           viewBox={`0 0 ${defaultSize} ${defaultSize}`}

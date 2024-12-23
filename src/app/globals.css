@@ -110,7 +110,7 @@
   }
 
   .dashboard {
-    grid-template-columns: 16rem 1fr;
+    grid-template-columns: 1fr;
     /* grid-template-rows: 1fr; */
   }
 
@@ -144,6 +144,11 @@
       grid-template-rows: 600px;
       grid-template-columns: 1fr 17.0625rem;
     }
+
+    .dashboard {
+      grid-template-columns: 1fr;
+      /* grid-template-rows: 1fr; */
+    }
   }
 
   @media (64rem <= width) {
@@ -153,6 +158,11 @@
 
     .company--box-even {
       grid-template-columns: 38.125rem 1fr;
+    }
+
+    .dashboard {
+      grid-template-columns: 16rem 1fr;
+      /* grid-template-rows: 1fr; */
     }
   }
 }

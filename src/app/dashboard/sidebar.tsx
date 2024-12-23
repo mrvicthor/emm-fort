@@ -13,7 +13,7 @@ const Sidebar = () => {
   //   { label: "Referrals", icon: "share" },
   // ];
   return (
-    <aside className="bg-white h-[94vh] rounded-xl">
+    <aside className="bg-white h-[94vh] rounded-xl hidden lg:block">
       <nav className="px-3 flex flex-col gap-6 relative h-full">
         <Link href="#" className="flex justify-center mt-2">
           <Image alt="sales logo" src={salesLogo} width={74} height={74} />
