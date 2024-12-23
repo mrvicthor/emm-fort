@@ -20,13 +20,13 @@ const Downlines = ({ data }: DownlineProps) => {
         {data.map((item, index) => (
           <li
             key={index}
-            className="flex justify-between items-center bg-[#F4F4F4] px-2 rounded-lg py-2"
+            className="flex justify-between items-center bg-[#F4F4F4] px-3 rounded-lg py-2"
           >
             <div>
               <p className="font-bold">{item.name}</p>
-              <p className="text-sm">{item.tier}</p>
+              <p className="text-sm opacity-40">{item.tier}</p>
             </div>
-            <div>{formatCurrency(item.benefits)}</div>
+            <p className="font-bold">{formatCurrency(item.benefits)}</p>
           </li>
         ))}
       </ul>
