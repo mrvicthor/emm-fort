@@ -38,7 +38,7 @@ const Gauge = ({
   const dashOffset = circumference * 0.75;
   return (
     <div
-      className={`w-full h-[5rem] md:h-[11rem] max-w-5xl mx-auto ${classNames}`}
+      className={`w-full h-[5rem] sm:h-[10rem] md:h-[11rem] max-w-5xl mx-auto ${classNames}`}
     >
       <div className="w-full aspect-[2/1]">
         <svg

@@ -13,8 +13,8 @@ const Downlines = ({ data }: DownlineProps) => {
   return (
     <div className="py-4 px-4 space-y-3 rounded-xl dashboard-shadow ">
       <div className="flex justify-between items-center">
-        <h3 className="font-bold text-lg">Downline</h3>
-        <h3 className="font-bold text-lg">Benefit</h3>
+        <h3 className="font-bold text-sm md:text-lg">Downline</h3>
+        <h3 className="font-bold text-sm md:text-lg">Benefit</h3>
       </div>
       <ul className="flex flex-col gap-2">
         {data.map((item, index) => (
@@ -23,8 +23,8 @@ const Downlines = ({ data }: DownlineProps) => {
             className="flex justify-between items-center bg-[#F4F4F4] px-3 rounded-lg py-2"
           >
             <div>
-              <p className="font-bold">{item.name}</p>
-              <p className="text-sm opacity-40">{item.tier}</p>
+              <p className="font-bold sm:text-sm">{item.name}</p>
+              <p className="text-sm opacity-40 sm:text-sm">{item.tier}</p>
             </div>
             <p className="font-bold">{formatCurrency(item.benefits)}</p>
           </li>

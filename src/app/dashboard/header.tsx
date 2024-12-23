@@ -36,7 +36,7 @@ const Header = () => {
   console.log(setNewNotification);
 
   return (
-    <header className=" flex items-center justify-between gap-4 overflow-hidden border border-red-500">
+    <header className=" flex items-center justify-between gap-4 overflow-hidden">
       <div className="flex gap-4">
         <Link href="#" className="flex justify-center md:hidden">
           <Image alt="sales logo" src={salesLogo} width={24} height={24} />
