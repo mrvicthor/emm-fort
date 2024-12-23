@@ -36,7 +36,7 @@ const Header = () => {
   console.log(setNewNotification);
 
   return (
-    <header className=" flex items-center justify-between gap-4 overflow-hidden h-14">
+    <header className=" flex items-center justify-between gap-2 md:gap-4 overflow-hidden h-14">
       <div className="flex gap-4">
         <Link href="#" className="flex justify-center">
           <Image alt="sales logo" src={salesLogo} width={24} height={24} />
@@ -58,7 +58,7 @@ const Header = () => {
           search
         </span>
       </div>
-      <div className="flex gap-4 items-center">
+      <div className="flex gap-1 md:gap-4 items-center">
         <span className="material-symbols-outlined block cursor-pointer">
           {notification ? "notifications_unread" : "notifications"}
         </span>
@@ -67,6 +67,9 @@ const Header = () => {
           <span className="block font-semibold sm:text-sm">Maureen</span>
           <span className="block sm:text-xs text-sm opacity-40 ">Silver</span>
         </div>
+        <button className="">
+          <span className="block text-xs">Sign out</span>
+        </button>
       </div>
     </header>
   );

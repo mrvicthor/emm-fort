@@ -15,7 +15,7 @@ export default function DashboardPage() {
     { name: "Jude", tier: "Bronze", benefits: 3000 },
   ];
   return (
-    <section className="bg-white min-h-[94vh] lg:h-[94vh] rounded-xl px-4 py-2 space-y-4 overflow-hidden">
+    <section className="bg-white min-h-[94vh] md:h-[94vh] rounded-xl px-4 py-2 space-y-4 overflow-hidden">
       <Header />
       <section className="grid md:grid-cols-2 gap-4">
         <div className="col-span-1 flex flex-col gap-3">
