@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "crypto": "^1.0.1",
+    "mailtrap": "^3.4.0",
     "mongoose": "^8.9.1",
     "motion": "^12.0.0-alpha.2",
     "next": "15.0.4",
