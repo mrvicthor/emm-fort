@@ -14,6 +14,7 @@ const SignupForm = () => {
             type="text"
             placeholder="Enter full name"
             className="border py-3 px-4 rounded-lg"
+            required
           />
         </div>
         <div className="flex flex-col gap-2">
@@ -26,6 +27,7 @@ const SignupForm = () => {
             type="text"
             placeholder="Enter username"
             className="border py-3 px-4 rounded-lg"
+            required
           />
         </div>
         <div className="flex flex-col gap-2">
@@ -38,6 +40,7 @@ const SignupForm = () => {
             type="text"
             placeholder="Enter email address"
             className="border py-3 px-4 rounded-lg"
+            required
           />
         </div>
         <div className="flex flex-col gap-2">
@@ -50,6 +53,7 @@ const SignupForm = () => {
             type="tel"
             placeholder="Enter phone number"
             className="border py-3 px-4 rounded-lg"
+            required
           />
         </div>
         <div className="flex flex-col gap-2">

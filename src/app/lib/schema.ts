@@ -11,6 +11,7 @@ interface IUser extends Document {
   name: string;
   username: string;
   email: string;
+  phoneNumber: string;
   password: string;
   tier: string;
   personalReferralCode: string;
@@ -22,6 +23,11 @@ interface IUser extends Document {
 interface IUserModel extends Model<IUser> {
   generateUniqueReferralCode(username: string): Promise<string>;
 }
+
+const validateNigerianPhoneNumber = (value: string) => {
+  const nigerianPhoneRegex = /^(0|234|\+234)[789][01]\d{8}$/;
+  return nigerianPhoneRegex.test(value);
+};
 
 const ReferredUserSchema = new Schema<IReferredUser>(
   {
@@ -54,16 +60,26 @@ const userSchema = new Schema<IUser, IUserModel>(
       lowercase: true,
       minlength: 3,
       maxlength: 30,
-      match: [
-        /^[a-zA-Z0-9_]+$/,
-        "Username can only contain letters, numbers, and underscores",
-      ],
+      validate: {
+        validator: (v: string) => /^[a-zA-Z0-9_]+$/.test(v),
+        message: "Username can only contain letters, numbers, and underscores",
+      },
     },
     email: {
       type: String,
       required: true,
       unique: true,
       trim: true,
+    },
+    phoneNumber: {
+      type: String,
+      required: true,
+      unique: true,
+      validate: {
+        validator: validateNigerianPhoneNumber,
+        message:
+          "Please enter a valid Nigerian phone number (e.g., 07000000000, +2347000000000)",
+      },
     },
     password: {
       type: String,
@@ -74,7 +90,6 @@ const userSchema = new Schema<IUser, IUserModel>(
     },
     personalReferralCode: {
       type: String,
-      required: true,
       unique: true,
     },
     referredBy: {
@@ -170,3 +185,50 @@ userSchema.path("referralCode").validate(async function (value) {
 const User = mongoose.model<IUser, IUserModel>("User", userSchema);
 
 export default User;
+
+const sessionSchema = new Schema({
+  userId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+    required: true,
+    index: true,
+  },
+  createdAt: {
+    type: Date,
+    required: true,
+    default: Date.now(),
+  },
+  expiresAt: {
+    type: Date,
+    default: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
+  },
+});
+
+export const SessionModel =
+  mongoose.models.Session || mongoose.model("Session", sessionSchema);
+
+const verificationTokenSchema = new Schema({
+  userId: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: true,
+    ref: "User",
+    index: true,
+  },
+  type: {
+    type: String,
+    required: true,
+  },
+  expiresAt: {
+    type: Date,
+    required: true,
+  },
+  createdAt: {
+    type: Date,
+    required: true,
+    default: Date.now,
+  },
+});
+
+export const VerificationTokenModel =
+  mongoose.models.VerificationToken ||
+  mongoose.model("VerificationToken", verificationTokenSchema);
