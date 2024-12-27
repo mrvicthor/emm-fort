@@ -1,5 +1,4 @@
 import mongoose, { Document, Model, Schema } from "mongoose";
-import crypto from "crypto";
 
 interface IReferredUser {
   userId: mongoose.Types.ObjectId;
@@ -114,8 +113,14 @@ userSchema.statics.generateUniqueReferralCode = async function (
 ): Promise<string> {
   const generateCode = () => {
     const baseCode = username.slice(0, 6).toUpperCase();
-    const randomPart = crypto.randomBytes(2).toString("hex").toUpperCase();
-    return `${baseCode}${randomPart}`;
+    const randomBytes = new Uint8Array(2);
+    crypto.getRandomValues(randomBytes);
+    const hexString = Array.from(randomBytes)
+      .map((byte) => byte.toString(16).padStart(2, "0"))
+      .join("")
+      .toUpperCase();
+
+    return `${baseCode}${hexString}`;
   };
 
   let referralCode: string = "";

@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useActionState } from "react";
+import { signup } from "../actions/auth";
+import { SignupActionResponse } from "../lib/definitions";
+
+const initialState: SignupActionResponse = {
+  success: false,
+  message: "",
+};
 
 const SignupForm = () => {
+  const [state, action, pending] = useActionState(signup, initialState);
   return (
-    <form className="space-y-4">
+    <form action={action} className="space-y-4">
       <div className="space-y-2 md:space-y-4 overflow-y-scroll max-h-80">
         <div className="flex flex-col gap-2">
           <label htmlFor="fullName" className="uppercase">
@@ -12,6 +20,7 @@ const SignupForm = () => {
             id="fullName"
             name="fullName"
             type="text"
+            defaultValue={state.inputs?.name}
             placeholder="Enter full name"
             className="border py-3 px-4 rounded-lg"
             required
@@ -25,6 +34,7 @@ const SignupForm = () => {
             id="username"
             name="username"
             type="text"
+            defaultValue={state.inputs?.username}
             placeholder="Enter username"
             className="border py-3 px-4 rounded-lg"
             required
@@ -38,6 +48,7 @@ const SignupForm = () => {
             id="email"
             name="email"
             type="text"
+            defaultValue={state.inputs?.email}
             placeholder="Enter email address"
             className="border py-3 px-4 rounded-lg"
             required
@@ -51,6 +62,7 @@ const SignupForm = () => {
             id="phoneNumber"
             name="phoneNumber"
             type="tel"
+            defaultValue={state.inputs?.phoneNumber}
             placeholder="Enter phone number"
             className="border py-3 px-4 rounded-lg"
             required
@@ -64,6 +76,7 @@ const SignupForm = () => {
             id="referral"
             name="referral"
             type="text"
+            defaultValue={state.inputs?.referral}
             placeholder="Enter referral"
             className="border py-3 px-4 rounded-lg"
           />
@@ -77,17 +90,34 @@ const SignupForm = () => {
             type="password"
             name="password"
             id="password"
+            defaultValue={state.inputs?.password}
             className="border py-3 px-4 rounded-lg"
             placeholder="Enter your password"
           />
         </div>
       </div>
 
+      {state?.message && (
+        <div
+          className={`${
+            state.success ? "border-green-500" : "border-red-500"
+          } border py-3 px-4 rounded-lg `}
+        >
+          {state.success && (
+            <span className="material-symbols-outlined text-green-500 flex">
+              check_circle
+            </span>
+          )}
+          <p>{state.message}</p>
+        </div>
+      )}
+
       <button
         type="submit"
+        disabled={pending}
         className="py-3 w-full bg-[#ff5c00] text-white capitalize rounded-lg hover:opacity-40"
       >
-        signup
+        {pending ? "submitting..." : "signup"}
       </button>
     </form>
   );
