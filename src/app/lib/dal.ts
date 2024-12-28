@@ -24,6 +24,7 @@ export const getUser = cache(async () => {
     return {
       ...user,
       password: undefined,
+      phoneNumber: undefined,
     };
   } catch (error) {
     console.log("Failed to fetch user: ", error);

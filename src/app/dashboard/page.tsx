@@ -5,8 +5,9 @@ import Image from "next/image";
 import SalesByTime from "./_components/salesByTime";
 import Gauge from "./_components/gauge";
 import Downlines from "./_components/downlines";
-
-export default function DashboardPage() {
+import { verifySession } from "../lib/dal";
+export default async function DashboardPage() {
+  const session = await verifySession();
   const tier = getTierMatch("Silver");
 
   const downlines = [

@@ -1,3 +1,4 @@
+"use client";
 import React, { useActionState } from "react";
 import { signup } from "../actions/auth";
 import { SignupActionResponse } from "../lib/definitions";
@@ -22,10 +23,15 @@ const SignupForm = () => {
             type="text"
             defaultValue={state.inputs?.name}
             placeholder="Enter full name"
-            className="border py-3 px-4 rounded-lg"
+            className={`border py-3 px-4 rounded-lg ${
+              state.errors?.name && "border-red-500"
+            }`}
             required
           />
         </div>
+        {state.errors?.name && (
+          <p className="text-red-500">{state.errors.name}</p>
+        )}
         <div className="flex flex-col gap-2">
           <label htmlFor="username" className="uppercase">
             Username
@@ -36,10 +42,15 @@ const SignupForm = () => {
             type="text"
             defaultValue={state.inputs?.username}
             placeholder="Enter username"
-            className="border py-3 px-4 rounded-lg"
+            className={`border py-3 px-4 rounded-lg ${
+              state.errors?.name && "border-red-500"
+            }`}
             required
           />
         </div>
+        {state.errors?.username && (
+          <p className="text-red-500">{state.errors.username}</p>
+        )}
         <div className="flex flex-col gap-2">
           <label htmlFor="email" className="uppercase">
             Email
@@ -50,10 +61,15 @@ const SignupForm = () => {
             type="text"
             defaultValue={state.inputs?.email}
             placeholder="Enter email address"
-            className="border py-3 px-4 rounded-lg"
+            className={`border py-3 px-4 rounded-lg ${
+              state.errors?.name && "border-red-500"
+            }`}
             required
           />
         </div>
+        {state.errors?.email && (
+          <p className="text-red-500">{state.errors.email}</p>
+        )}
         <div className="flex flex-col gap-2">
           <label htmlFor="phoneNumber" className="uppercase">
             Phone Number
@@ -64,10 +80,15 @@ const SignupForm = () => {
             type="tel"
             defaultValue={state.inputs?.phoneNumber}
             placeholder="Enter phone number"
-            className="border py-3 px-4 rounded-lg"
+            className={`border py-3 px-4 rounded-lg ${
+              state.errors?.name && "border-red-500"
+            }`}
             required
           />
         </div>
+        {state.errors?.phoneNumber && (
+          <p className="text-red-500">{state.errors.phoneNumber}</p>
+        )}
         <div className="flex flex-col gap-2">
           <label htmlFor="referral" className="uppercase">
             referral (optional)
@@ -91,10 +112,22 @@ const SignupForm = () => {
             name="password"
             id="password"
             defaultValue={state.inputs?.password}
-            className="border py-3 px-4 rounded-lg"
+            className={`border py-3 px-4 rounded-lg ${
+              state.errors?.password && "border-red-500"
+            }`}
             placeholder="Enter your password"
           />
         </div>
+        {state?.errors?.password && (
+          <div className="text-sm text-red-500">
+            <p>Password must:</p>
+            <ul>
+              {state.errors.password.map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
 
       {state?.message && (

@@ -13,6 +13,7 @@ interface IUser extends Document {
   phoneNumber: string;
   password: string;
   tier: string;
+  isVerified: boolean;
   personalReferralCode: string;
   referredBy: string | null;
   referredUsers: IReferredUser[];
@@ -90,6 +91,10 @@ const userSchema = new Schema<IUser, IUserModel>(
     personalReferralCode: {
       type: String,
       unique: true,
+    },
+    isVerified: {
+      type: Boolean,
+      default: false,
     },
     referredBy: {
       type: String,
@@ -177,7 +182,7 @@ userSchema.pre("save", async function (next) {
 });
 
 // validation to ensure referall code exists if provided
-userSchema.path("referralCode").validate(async function (value) {
+userSchema.path("referredBy").validate(async function (value) {
   if (value) {
     const user = await this.model("User").findOne({
       personalReferralCode: value,
@@ -187,7 +192,8 @@ userSchema.path("referralCode").validate(async function (value) {
   return true;
 }, "Invalid referral code");
 
-const User = mongoose.model<IUser, IUserModel>("User", userSchema);
+const User =
+  mongoose.models.User || mongoose.model<IUser, IUserModel>("User", userSchema);
 
 export default User;
 

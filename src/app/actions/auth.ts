@@ -10,6 +10,7 @@ import User, { VerificationTokenModel } from "../lib/schema";
 import { sendVerificationEmail } from "../mailer/sendMail";
 import { createSession } from "./session";
 import mongoose from "mongoose";
+import { redirect } from "next/navigation";
 
 const APP_ORIGIN = "http://localhost:3000";
 export async function signup(
@@ -70,9 +71,33 @@ export async function signup(
 
   await sendVerificationEmail(user.email, url);
   await createSession(userId as mongoose.Types.ObjectId);
-
+  redirect("/dashboard");
   return {
     success: true,
     message: "Signup Successful. Email sent, please verify your email",
   };
+}
+
+export async function verifyEmail(code: string) {
+  const validCode = await VerificationTokenModel.findOne({ _id: code });
+
+  if (!validCode) {
+    return {
+      message: "Invalid or expired verification code",
+    };
+  }
+
+  const user = await User.findByIdAndUpdate(
+    validCode.userId,
+    {
+      isVerified: true,
+    },
+    {
+      new: true,
+    }
+  );
+
+  await validCode.deleteOne();
+
+  return { user };
 }
