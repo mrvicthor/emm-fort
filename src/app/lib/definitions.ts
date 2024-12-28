@@ -48,3 +48,22 @@ export type SessionPayload = {
   userId: mongoose.Types.ObjectId;
   expiresAt: Date;
 };
+
+export const LoginFormSchema = z.object({
+  email: z.string().email({ message: "Please enter a valid email." }).trim(),
+  password: z.string().min(8, { message: "Password can not be empty" }).trim(),
+});
+
+export type LoginFormData = {
+  email: string;
+  password: string;
+};
+
+export type LoginActionResponse = {
+  success: boolean;
+  message: string;
+  inputs?: LoginFormData;
+  errors?: {
+    [K in keyof LoginFormData]?: string[];
+  };
+};

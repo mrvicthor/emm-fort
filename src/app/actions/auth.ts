@@ -1,6 +1,9 @@
 "use server";
 import bcrypt from "bcryptjs";
 import {
+  LoginActionResponse,
+  LoginFormData,
+  LoginFormSchema,
   SignupActionResponse,
   SignupFormData,
   signupFormSchema,
@@ -100,4 +103,46 @@ export async function verifyEmail(code: string) {
   await validCode.deleteOne();
 
   return { user };
+}
+
+export async function login(state: LoginActionResponse, formData: FormData) {
+  connectToDatabase();
+  const rawData: LoginFormData = {
+    email: formData.get("email") as string,
+    password: formData.get("password") as string,
+  };
+
+  const validateFields = LoginFormSchema.safeParse(rawData);
+
+  if (!validateFields.success) {
+    return {
+      success: false,
+      message: "Please fix all errors in the form",
+      errors: validateFields.error.flatten().fieldErrors,
+      inputs: rawData,
+    };
+  }
+
+  const { email, password } = validateFields.data;
+
+  const user = await User.findOne({ email });
+
+  if (!user) {
+    return {
+      success: false,
+      message: "Invalid credentials",
+    };
+  }
+
+  const isValidPassword = await bcrypt.compare(password, user.password);
+
+  if (!isValidPassword) {
+    return {
+      success: false,
+      message: "Invalid credentials",
+    };
+  }
+
+  await createSession(user._id);
+  redirect("/dashboard");
 }
