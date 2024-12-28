@@ -6,8 +6,7 @@ import TierForm from "./form";
 
 const Tier = () => {
   const [selectTier, setSelectedTier] = useState<string>("");
-  const [showTierOptions, setShowTierOptions] = useState(true);
-  console.log(showTierOptions);
+
   return (
     <>
       <section className="container py-12 flex justify-center">
@@ -20,11 +19,7 @@ const Tier = () => {
             </Link>
             <h1 className="text-3xl font-semibold">Choose tier</h1>
           </div>
-          <TierForm
-            selectTier={selectTier}
-            handleSelect={setSelectedTier}
-            handleOptions={setShowTierOptions}
-          />
+          <TierForm selectTier={selectTier} handleSelect={setSelectedTier} />
         </div>
       </section>
     </>

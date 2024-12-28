@@ -3,6 +3,7 @@ import { decrypt } from "../actions/session";
 import { redirect } from "next/navigation";
 import { cache } from "react";
 import User from "./schema";
+import connectToDatabase from "../db";
 
 export async function verifySession() {
   const cookie = (await cookies()).get("session")?.value;
@@ -16,6 +17,7 @@ export async function verifySession() {
 }
 
 export const getUser = cache(async () => {
+  connectToDatabase();
   const session = await verifySession();
   if (!session) return null;
 

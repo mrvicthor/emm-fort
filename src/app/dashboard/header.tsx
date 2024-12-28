@@ -3,8 +3,13 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import salesLogo from "../../../public/sales-logo.jpeg";
+import { logout } from "../actions/auth";
 
-const Header = () => {
+type HeaderProps = {
+  username: string;
+  name: string;
+};
+const Header = ({ username, name }: HeaderProps) => {
   const [mounted, setMounted] = useState(false);
   const [notification, setNewNotification] = useState(true);
   // const date = new Date();
@@ -41,7 +46,7 @@ const Header = () => {
         <Link href="#" className="flex justify-center">
           <Image alt="sales logo" src={salesLogo} width={24} height={24} />
         </Link>
-        <h1 className="font-bold sm:text- md:text-lg">Dashboard</h1>
+        <h1 className="font-bold sm:text- md:text-lg">{name}</h1>
       </div>
       <div className="dashboard-shadow hidden  md:flex items-center gap-2 px-4 py-2 rounded-xl w-[20rem]">
         <span className="material-symbols-outlined block opacity-40">
@@ -64,10 +69,9 @@ const Header = () => {
         </span>
         <span className="material-symbols-outlined block">account_circle</span>
         <div className="hidden md:flex flex-col">
-          <span className="block font-semibold sm:text-sm">Maureen</span>
-          <span className="block sm:text-xs text-sm opacity-40 ">Silver</span>
+          <span className="block font-semibold sm:text-sm">{username}</span>
         </div>
-        <button className="">
+        <button onClick={() => logout()} className="">
           <span className="block text-xs">Sign out</span>
         </button>
       </div>

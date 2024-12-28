@@ -5,33 +5,54 @@ import Image from "next/image";
 import SalesByTime from "./_components/salesByTime";
 import Gauge from "./_components/gauge";
 import Downlines from "./_components/downlines";
-import { verifySession } from "../lib/dal";
-export default async function DashboardPage() {
-  const session = await verifySession();
-  const tier = getTierMatch("Silver");
+import { getUser } from "../lib/dal";
+
+import { redirect } from "next/navigation";
+export default async function Page() {
+  const user = await getUser();
+  // const userTier = user._doc.tier;
+  const { tier: userTier, username, name, personalReferralCode } = user._doc;
+
+  const fullName = name.split(" ");
+
+  if (!userTier) {
+    redirect("/dashboard/tier");
+  }
+
+  const tier = getTierMatch(userTier);
 
   const downlines = [
     { name: "Maureen", tier: "Silver", benefits: 2500 },
     { name: "Bright", tier: "Gold", benefits: 4500 },
     { name: "Jude", tier: "Bronze", benefits: 3000 },
   ];
+
   return (
-    <section className="bg-white min-h-[94vh] md:h-[94vh] rounded-xl px-4 py-2 space-y-4 overflow-hidden">
-      <Header />
-      <section className="grid md:grid-cols-2 gap-4">
-        <div className="col-span-1 flex flex-col gap-3">
-          <div className=" rounded-xl py-4 px-4 flex justify-between dashboard-shadow ">
-            <div className="flex flex-col justify-between">
+    <section className="bg-white min-h-[95vh] md:h-[96vh] rounded-xl px-4 py-2 space-y-4 overflow-hidden">
+      <Header username={username} name={fullName[0]} />
+      <section className="md:grid md:grid-cols-2 gap-4">
+        <div className="md:col-span-1 flex flex-col gap-3 ">
+          <div className="rounded-xl py-4 px-4 flex justify-between dashboard-shadow">
+            <div className="flex flex-col justify-between flex-1">
               <article className="space-y-1">
                 <h2 className="font-bold sm:text-sm md:text-2xl">Tier</h2>
-                <p className="text-md font-medium opacity-40">Silver</p>
+                <p className="text-md font-medium opacity-40 capitalize">
+                  {userTier}
+                </p>
+                <small className="font-bold">
+                  referal code: {personalReferralCode}
+                </small>
               </article>
               <button className="bg-gradient-to-r from-[#ff5c00] to-[#FFD700] py-2 px-4 rounded-lg text-white capitalize font-semibold">
                 upgrade tier
               </button>
             </div>
-            <div className="h-28 w-28">
-              <Image src={tier} alt="tier logo" />
+            <div className="flex-1 h-28 w-28">
+              <Image
+                src={tier}
+                alt="tier logo"
+                className="object-contain h-full w-full"
+              />
             </div>
           </div>
           <div className=" py-4 px-4 rounded-xl dashboard-shadow ">
@@ -64,7 +85,7 @@ export default async function DashboardPage() {
             </div>
           </div>
         </div>
-        <div className="col-span-1">
+        <div className="md:col-span-1 mt-3 md:mt-0">
           <div className="rounded-xl dashboard-shadow py-4 px-4 overflow-hidden space-y-8">
             <h3 className="font-bold text-sm md:text-lg">Total earned</h3>
             <Gauge value={250000} maxValue={5000000} textColor="#222" />

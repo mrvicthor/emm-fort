@@ -67,3 +67,20 @@ export type LoginActionResponse = {
     [K in keyof LoginFormData]?: string[];
   };
 };
+
+export const AddTierSchema = z.object({
+  tier: z.string({ message: "Please select a tier" }).trim(),
+});
+
+export type AddTierFormData = {
+  tier: string;
+};
+
+export type AddtierActionResponse = {
+  success: boolean;
+  message: string;
+  inputs?: AddTierFormData;
+  errors?: {
+    [K in keyof AddTierFormData]?: string[];
+  };
+};
