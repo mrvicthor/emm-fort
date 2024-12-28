@@ -11,7 +11,7 @@ import {
 import connectToDatabase from "../db";
 import User, { VerificationTokenModel } from "../lib/schema";
 import { sendVerificationEmail } from "../mailer/sendMail";
-import { createSession } from "./session";
+import { createSession, deleteSession } from "./session";
 import mongoose from "mongoose";
 import { redirect } from "next/navigation";
 
@@ -145,4 +145,8 @@ export async function login(state: LoginActionResponse, formData: FormData) {
 
   await createSession(user._id);
   redirect("/dashboard");
+}
+
+export async function logout() {
+  await deleteSession();
 }
