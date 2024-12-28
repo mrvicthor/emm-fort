@@ -70,7 +70,7 @@ const LoginForm = () => {
         type="submit"
         className="py-3 w-full bg-[#ff5c00] text-white capitalize rounded-lg hover:opacity-40"
       >
-        {pending ? "submiting..." : "login"}
+        {pending ? "submitting..." : "login"}
       </button>
     </form>
   );

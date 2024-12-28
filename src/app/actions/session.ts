@@ -4,6 +4,7 @@ import { SessionPayload } from "../lib/definitions";
 import mongoose from "mongoose";
 import { SessionModel } from "../lib/schema";
 import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 
 const secretKey = process.env.JWT_SECRET_KEY;
 const key = new TextEncoder().encode(secretKey);
@@ -81,4 +82,15 @@ export async function updateSession() {
     sameSite: "lax",
     path: "/",
   });
+}
+
+export async function deleteSession() {
+  const cookie = (await cookies()).get("session")?.value;
+  const session = await decrypt(cookie);
+
+  if (session) {
+    await SessionModel.findByIdAndDelete(session.userId);
+  }
+  (await cookies()).delete("session");
+  redirect("/login");
 }
