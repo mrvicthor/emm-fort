@@ -10,6 +10,7 @@ const initialState: SignupActionResponse = {
 
 const SignupForm = () => {
   const [state, action, pending] = useActionState(signup, initialState);
+
   return (
     <form action={action} className="space-y-4">
       <div className="space-y-2 md:space-y-4 overflow-y-scroll max-h-80">

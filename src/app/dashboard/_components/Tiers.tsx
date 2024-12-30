@@ -2,10 +2,15 @@
 import Link from "next/link";
 import React, { useState } from "react";
 import TierForm from "./form";
+
+import { getTierDetails } from "@/helpers";
+
 // import Dashboard from "@/components/Dashboard";
 
 const Tier = () => {
   const [selectTier, setSelectedTier] = useState<string>("");
+
+  const details = getTierDetails(selectTier);
 
   return (
     <>
@@ -19,7 +24,11 @@ const Tier = () => {
             </Link>
             <h1 className="text-3xl font-semibold">Choose tier</h1>
           </div>
-          <TierForm selectTier={selectTier} handleSelect={setSelectedTier} />
+          <TierForm
+            selectTier={selectTier}
+            handleSelect={setSelectedTier}
+            details={details}
+          />
         </div>
       </section>
     </>

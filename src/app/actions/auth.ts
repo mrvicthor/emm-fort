@@ -45,14 +45,17 @@ export async function signup(
   const { name, username, email, phoneNumber, referral, password } =
     validatedFields.data;
 
-  const existingUser = await User.exists({ email });
+  const existingUser =
+    (await User.exists({ email })) || (await User.exists({ phoneNumber }));
 
   if (existingUser) {
     return {
       success: false,
       message: "User already exist.",
+      inputs: rawData,
     };
   }
+
   const hashedPassword = await bcrypt.hash(password, 10);
   const user = await User.create({
     name,

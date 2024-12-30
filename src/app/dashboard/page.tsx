@@ -55,7 +55,7 @@ export default async function Page() {
               />
             </div>
           </div>
-          <div className=" py-4 px-4 rounded-xl dashboard-shadow ">
+          <div className=" py-4 px-4 rounded-xl dashboard-shadow">
             <div className="space-y-3">
               <h3 className="capitalize font-bold text-sm md:text-lg">
                 available balance
