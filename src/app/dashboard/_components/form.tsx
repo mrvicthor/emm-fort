@@ -150,9 +150,9 @@ const TierForm = ({ selectTier, handleSelect, details }: TierProps) => {
             className="bg-[#000000] opacity-50 z-40 fixed w-screen h-full left-0 right-0 top-0"
             onClick={() => setShowDialog(!showDialog)}
           />
-          <div className="dashboard-shadow py-4 px-4 bg-white rounded-xl fixed z-50 top-[10rem] left-[50%] -translate-x-[50%] w-[30rem]">
+          <div className="dashboard-shadow py-4 px-4 bg-[#000000] rounded-xl fixed z-50 top-[10rem] left-[50%] -translate-x-[50%] w-[25rem] space-y-3">
             <div className="flex justify-between items-center">
-              <h2 className="font-bold">{selectTier}</h2>{" "}
+              <h2 className="font-bold text-xl text-white">{selectTier}</h2>{" "}
               <div
                 onClick={() => setShowDialog(!showDialog)}
                 className="cursor-pointer"

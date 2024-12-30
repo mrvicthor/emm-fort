@@ -1,17 +1,23 @@
 "use client";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import TierForm from "./form";
 
 import { getTierDetails } from "@/helpers";
+import Loading from "@/components/Loading";
 
 // import Dashboard from "@/components/Dashboard";
 
 const Tier = () => {
   const [selectTier, setSelectedTier] = useState<string>("");
+  const [mounted, setMounted] = useState(false);
 
   const details = getTierDetails(selectTier);
+  useEffect(() => {
+    setMounted(true);
+  }, [mounted]);
 
+  if (!mounted) return null;
   return (
     <>
       <section className="container py-12 flex justify-center">
@@ -24,11 +30,13 @@ const Tier = () => {
             </Link>
             <h1 className="text-3xl font-semibold">Choose tier</h1>
           </div>
-          <TierForm
-            selectTier={selectTier}
-            handleSelect={setSelectedTier}
-            details={details}
-          />
+          <Suspense fallback={<Loading />}>
+            <TierForm
+              selectTier={selectTier}
+              handleSelect={setSelectedTier}
+              details={details}
+            />
+          </Suspense>
         </div>
       </section>
     </>
