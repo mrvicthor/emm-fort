@@ -12,9 +12,9 @@ const Header = () => {
 
   const navLinks = [
     { label: "home", href: "/" },
-    { label: "about us", href: "/about" },
-    { label: "our companies", href: "/companies" },
-    { label: "contact us", href: "/contact" },
+    { label: "about us", href: "/" },
+    { label: "our companies", href: "/" },
+    { label: "contact us", href: "/" },
   ];
 
   const handleShowMenu = () => {
