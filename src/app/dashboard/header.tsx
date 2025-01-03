@@ -11,34 +11,12 @@ type HeaderProps = {
 };
 const Header = ({ username, name }: HeaderProps) => {
   const [mounted, setMounted] = useState(false);
-  const [notification, setNewNotification] = useState(true);
-  // const date = new Date();
-  // const presentYear = date.getFullYear();
-  // const presentDay = date.getDate();
-
-  // const months = [
-  //   "January",
-  //   "February",
-  //   "March",
-  //   "April",
-  //   "May",
-  //   "June",
-  //   "July",
-  //   "August",
-  //   "September",
-  //   "October",
-  //   "November",
-  //   "December",
-  // ];
-
-  // const presentMonth = months[date.getMonth()];
+  const notification = true;
 
   useEffect(() => {
     setMounted(true);
   }, []);
   if (!mounted) return null;
-
-  console.log(setNewNotification);
 
   return (
     <header className=" flex items-center justify-between gap-2 md:gap-4 overflow-hidden h-14">

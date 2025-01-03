@@ -105,7 +105,7 @@ export async function verifyEmail(code: string) {
 
   await validCode.deleteOne();
 
-  return { user };
+  return { user: user.omitPassword() };
 }
 
 export async function login(state: LoginActionResponse, formData: FormData) {

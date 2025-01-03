@@ -27,7 +27,6 @@ const Header = () => {
   };
 
   const preventScroll = () => {
-    console.log("triger");
     document.body.style.overflow = "auto";
     setShowMenu(false);
   };

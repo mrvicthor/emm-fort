@@ -10,5 +10,5 @@ export default async function Page() {
     redirect("/dashboard");
   }
 
-  return <Tier />;
+  return <Tier email={user._doc.email} />;
 }

@@ -7,8 +7,10 @@ import { getTierDetails } from "@/helpers";
 import Loading from "@/components/Loading";
 
 // import Dashboard from "@/components/Dashboard";
-
-const Tier = () => {
+type TierProps = {
+  email: string;
+};
+const Tier = ({ email }: TierProps) => {
   const [selectTier, setSelectedTier] = useState<string>("");
   const [mounted, setMounted] = useState(false);
 
@@ -35,6 +37,7 @@ const Tier = () => {
               selectTier={selectTier}
               handleSelect={setSelectedTier}
               details={details}
+              email={email}
             />
           </Suspense>
         </div>

@@ -1,16 +1,24 @@
 "use client";
 
-import React, { useActionState, useEffect, useState } from "react";
+import React, { useActionState, useEffect, useState, useRef } from "react";
 import { motion } from "motion/react";
-import { formatCurrency, TierDetails as TierInfoProps } from "@/helpers";
+import {
+  formatCurrency,
+  getTierPrice,
+  TierDetails as TierInfoProps,
+  tierList,
+} from "@/helpers";
 import { AddtierActionResponse } from "@/app/lib/definitions";
 import { addTier } from "@/app/actions/user";
 import TierDetails from "./TierInfo";
+import { PaystackButton } from "react-paystack";
+import { useRouter } from "next/navigation";
 
 type TierProps = {
   selectTier: string;
   handleSelect: React.Dispatch<React.SetStateAction<string>>;
   details: TierInfoProps;
+  email: string;
 };
 
 const initialState: AddtierActionResponse = {
@@ -18,10 +26,30 @@ const initialState: AddtierActionResponse = {
   message: "",
 };
 
-const TierForm = ({ selectTier, handleSelect, details }: TierProps) => {
-  const [state, action, pending] = useActionState(addTier, initialState);
+type PaystackRef = {
+  reference: string;
+};
+
+const TierForm = ({ selectTier, handleSelect, details, email }: TierProps) => {
+  const router = useRouter();
+  const paystackPublicKey = "pk_test_a369fd26d040839dc9f95541c2f2ed5d4eb81c55";
+  const [state, action] = useActionState(addTier, initialState);
   const [showDialog, setShowDialog] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const formRef = useRef<HTMLFormElement | null>(null);
+
+  const componentProps = {
+    email,
+    amount: getTierPrice(selectTier),
+    publicKey: paystackPublicKey,
+    text: "Pay Now",
+    onSuccess: ({ reference }: PaystackRef) => {
+      formRef.current?.requestSubmit();
+      alert(`Thanks for your purchase: ${reference}`);
+      router.replace("/dashboard");
+    },
+    onClose: () => alert("Wait! Don't leave :("),
+  };
   const containerVariants = {
     hidden: {
       opacity: 0,
@@ -49,30 +77,13 @@ const TierForm = ({ selectTier, handleSelect, details }: TierProps) => {
     },
   };
 
-  const tierList = [
-    { label: "Platinum", price: 100000 },
-    {
-      label: "Gold",
-      price: 50000,
-    },
-    {
-      label: "Silver",
-      price: 25000,
-    },
-    {
-      label: "Bronze",
-      price: 10000,
-    },
-    { label: "Basic", price: 0 },
-  ];
-
   useEffect(() => {
     setMounted(true);
   }, [mounted]);
 
   if (!mounted) return null;
   return (
-    <form action={action} className="flex flex-col gap-6">
+    <form ref={formRef} action={action} className="flex flex-col gap-6">
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -170,10 +181,13 @@ const TierForm = ({ selectTier, handleSelect, details }: TierProps) => {
           </div>
         </>
       ) : null}
-
-      <button className="bg-[#ff5c00] text-white rounded-xl hover:opacity-40 font-bold py-3">
+      <PaystackButton
+        className="bg-[#ff5c00] text-white rounded-xl hover:opacity-40 font-bold py-3"
+        {...componentProps}
+      />
+      {/* <button className="bg-[#ff5c00] text-white rounded-xl hover:opacity-40 font-bold py-3">
         {pending ? "Adding..." : "Pay with card"}
-      </button>
+      </button> */}
     </form>
   );
 };

@@ -17,7 +17,23 @@ interface IUser extends Document {
   personalReferralCode: string;
   referredBy: string | null;
   referredUsers: IReferredUser[];
+  omitPassword: () => Pick<
+    IUser,
+    | "_id"
+    | "name"
+    | "username"
+    | "email"
+    | "phoneNumber"
+    | "tier"
+    | "isVerified"
+    | "personalReferralCode"
+    | "referredBy"
+    | "referredUsers"
+    | "createdAt"
+    | "updatedAt"
+  >;
   createdAt: Date;
+  updatedAt: Date;
 }
 
 interface IUserModel extends Model<IUser> {
@@ -191,6 +207,12 @@ userSchema.path("referredBy").validate(async function (value) {
   }
   return true;
 }, "Invalid referral code");
+
+userSchema.methods.omitPassword = function () {
+  const user = this.toObject();
+  delete user.password;
+  return user;
+};
 
 const User =
   mongoose.models.User || mongoose.model<IUser, IUserModel>("User", userSchema);

@@ -69,3 +69,30 @@ const details: Record<string, TierDetails> = {
 };
 
 export const getTierDetails = (value: string) => details[value];
+
+const tierPrice: Record<string, number> = {
+  Platinum: 10000000,
+  Gold: 5000000,
+  Silver: 2500000,
+  Bronze: 1000000,
+  Basic: 0,
+};
+
+export const getTierPrice = (value: string) => tierPrice[value];
+
+export const tierList = [
+  { label: "Platinum", price: 100000 },
+  {
+    label: "Gold",
+    price: 50000,
+  },
+  {
+    label: "Silver",
+    price: 25000,
+  },
+  {
+    label: "Bronze",
+    price: 10000,
+  },
+  { label: "Basic", price: 0 },
+];
